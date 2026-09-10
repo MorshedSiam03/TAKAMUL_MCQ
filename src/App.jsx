@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import questionBank from './data/questions.json';
+import cleaningQuestions from './data/cleaningQuestions.json';
+import packagingQuestions from './data/packagingQuestions.json';
+import CategorySelect from './components/CategorySelect';
 import ExamHeader from './components/ExamHeader';
 import EndPage from './components/EndPage';
 import ProgressBar from './components/ProgressBar';
@@ -8,12 +11,46 @@ import QuestionFooter from './components/QuestionFooter';
 import QuizFooter from './components/QuizFooter';
 import ResultScreen from './components/ResultScreen';
 
-function getRandomQuestions() {
-  return [...questionBank].sort(() => Math.random() - 0.5).slice(0, 15);
+const categories = [
+  {
+    id: 'loading-unloading',
+    title: 'Loading & Unloading Worker',
+    headerTitle: 'লোডিং ও আনলোডিং পরীক্ষা',
+    description: 'লোডিং, আনলোডিং, PPE এবং warehouse safety সম্পর্কে পরীক্ষা।',
+    image: '/images/LOAD-UNLOAD.png',
+    imageAlt: 'পণ্য পরিবহনের ট্রাক',
+    icon: '',
+    questions: questionBank,
+  },
+  {
+    id: 'office-cleaning',
+    title: 'Office Facilities Cleaning Worker',
+    headerTitle: 'অফিস ফ্যাসিলিটিজ ক্লিনিং পরীক্ষা',
+    description: 'Office cleaning, chemicals, PPE, waste handling এবং hygiene safety।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'কর্মস্থলের সরঞ্জাম',
+    icon: '✦',
+    questions: cleaningQuestions,
+  },
+  {
+    id: 'packaging-worker',
+    title: 'Packaging Worker',
+    headerTitle: 'প্যাকেজিং ওয়ার্কার পরীক্ষা',
+    description: 'Packaging material, labels, box handling এবং machine safety।',
+    image: '/images/Packaging.png',
+    imageAlt: 'পণ্য সরানোর সরঞ্জাম',
+    icon: '□',
+    questions: packagingQuestions,
+  },
+];
+
+function getRandomQuestions(bank) {
+  return [...bank].sort(() => Math.random() - 0.5).slice(0, 15);
 }
 
 function App() {
-  const [questions, setQuestions] = useState(getRandomQuestions);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [isEndPage, setIsEndPage] = useState(false);
@@ -26,6 +63,15 @@ function App() {
     (total, answer, index) => total + (answer === questions[index].answer ? 1 : 0),
     0,
   );
+
+  function startExam(category) {
+    setSelectedCategory(category);
+    setQuestions(getRandomQuestions(category.questions));
+    setCurrentQuestion(0);
+    setSelectedAnswers([]);
+    setIsEndPage(false);
+    setIsFinished(false);
+  }
 
   function selectAnswer(optionIndex) {
     setSelectedAnswers((answers) => {
@@ -44,11 +90,20 @@ function App() {
   }
 
   function restartQuiz() {
-    setQuestions(getRandomQuestions());
+    startExam(selectedCategory);
+  }
+
+  function changeCategory() {
+    setSelectedCategory(null);
+    setQuestions([]);
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setIsEndPage(false);
     setIsFinished(false);
+  }
+
+  if (!selectedCategory) {
+    return <CategorySelect categories={categories} onSelect={startExam} />;
   }
 
   if (isEndPage) {
@@ -87,7 +142,12 @@ function App() {
             onQuestionSelect={setCurrentQuestion}
           />
           <div className="flex min-w-0 flex-col">
-            <ExamHeader currentQuestion={currentQuestion} totalQuestions={questions.length} />
+            <ExamHeader
+              currentQuestion={currentQuestion}
+              totalQuestions={questions.length}
+              title={selectedCategory.headerTitle}
+              onChangeCategory={changeCategory}
+            />
             <ProgressBar
               currentQuestion={currentQuestion}
               totalQuestions={questions.length}

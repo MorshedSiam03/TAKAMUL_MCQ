@@ -2,7 +2,7 @@
 
 A responsive Bengali MCQ examination platform for loading and unloading safety training.
 
-The application selects 15 random questions from a 100-question bank. Questions can include real equipment photos, and the exam includes answer tracking, progress navigation, final submission confirmation, and score calculation.
+The application supports three exam categories and selects 15 random questions from the selected category's question bank. Questions can include real equipment photos, and the exam includes answer tracking, progress navigation, final submission confirmation, and score calculation.
 
 ## Features
 
@@ -18,6 +18,7 @@ The application selects 15 random questions from a 100-question bank. Questions 
 - Automatic score and percentage result
 - Restart option with a fresh set of questions
 - Tailwind CSS styling with a teal theme
+- Three selectable exam categories: Loading & Unloading, Office Facilities Cleaning, and Packaging Worker
 
 ## Tech Stack
 
@@ -39,6 +40,8 @@ src/
 │   ├── QuizFooter.jsx
 │   └── ResultScreen.jsx
 ├── data/
+│   ├── cleaningQuestions.json
+│   ├── packagingQuestions.json
 │   └── questions.json
 ├── App.jsx
 ├── index.css
@@ -77,7 +80,13 @@ The development server will print the local URL in the terminal, usually `http:/
 
 ## Managing Questions
 
-Questions are stored in [src/data/questions.json](src/data/questions.json). Each question follows this format:
+Questions are stored in these category-specific files:
+
+- [src/data/questions.json](src/data/questions.json): Loading and unloading
+- [src/data/cleaningQuestions.json](src/data/cleaningQuestions.json): Office facilities cleaning
+- [src/data/packagingQuestions.json](src/data/packagingQuestions.json): Packaging worker
+
+Each question follows this format:
 
 ```json
 {

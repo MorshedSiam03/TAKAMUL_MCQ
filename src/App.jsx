@@ -2,6 +2,9 @@ import { useState } from 'react';
 import questionBank from './data/questions.json';
 import cleaningQuestions from './data/cleaningQuestions.json';
 import packagingQuestions from './data/packagingQuestions.json';
+import kitchenApplianceQuestions from './data/kitchenApplianceQuestions.json';
+import privateCarDriverQuestions from './data/privateCarDriverQuestions.json';
+import warehouseWorkerQuestions from './data/warehouseWorkerQuestions.json';
 import CategorySelect from './components/CategorySelect';
 import ExamHeader from './components/ExamHeader';
 import EndPage from './components/EndPage';
@@ -42,10 +45,59 @@ const categories = [
     icon: '□',
     questions: packagingQuestions,
   },
+  {
+    id: 'kitchen-appliance-worker',
+    title: 'Kitchen Appliance Worker',
+    headerTitle: 'কিচেন অ্যাপ্লায়েন্স ওয়ার্কার পরীক্ষা',
+    description: 'রান্নাঘরের যন্ত্রপাতি, বৈদ্যুতিক নিরাপত্তা এবং পরিষ্কার-পরিচ্ছন্নতা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'রান্নাঘরের সরঞ্জাম',
+    icon: 'K',
+    questions: kitchenApplianceQuestions,
+  },
+  {
+    id: 'private-car-driver',
+    title: 'Private Car Driver',
+    headerTitle: 'প্রাইভেট কার ড্রাইভার পরীক্ষা',
+    description: 'সড়ক নিরাপত্তা, গাড়ি পরীক্ষা এবং নিরাপদ চালনার নিয়ম।',
+    image: '/images/LOAD-UNLOAD.png',
+    imageAlt: 'যানবাহন',
+    icon: 'D',
+    questions: privateCarDriverQuestions,
+  },
+  {
+    id: 'warehouse-worker',
+    title: 'Warehouse Worker',
+    headerTitle: 'ওয়্যারহাউস ওয়ার্কার পরীক্ষা',
+    description: 'গুদাম নিরাপত্তা, পণ্য সংরক্ষণ, PPE এবং সরঞ্জাম ব্যবহার।',
+    image: '/images/Packaging.png',
+    imageAlt: 'গুদামের সরঞ্জাম',
+    icon: 'W',
+    questions: warehouseWorkerQuestions,
+  },
 ];
 
-function getRandomQuestions(bank) {
-  return [...bank].sort(() => Math.random() - 0.5).slice(0, 15);
+function shuffleQuestionOptions(question) {
+  const options = question.options.map((option, index) => ({
+    option,
+    isCorrect: index === question.answer,
+  }));
+
+  for (let index = options.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [options[index], options[randomIndex]] = [options[randomIndex], options[index]];
+  }
+
+  return {
+    ...question,
+    options: options.map(({ option }) => option),
+    answer: options.findIndex(({ isCorrect }) => isCorrect),
+  };
+}
+
+function getRandomQuestions(bank, shouldShuffleOptions = false) {
+  const randomQuestions = [...bank].sort(() => Math.random() - 0.5).slice(0, 15);
+  return shouldShuffleOptions ? randomQuestions.map(shuffleQuestionOptions) : randomQuestions;
 }
 
 function App() {
@@ -66,7 +118,7 @@ function App() {
 
   function startExam(category) {
     setSelectedCategory(category);
-    setQuestions(getRandomQuestions(category.questions));
+    setQuestions(getRandomQuestions(category.questions, category.id === 'packaging-worker'));
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setIsEndPage(false);

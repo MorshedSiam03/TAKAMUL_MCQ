@@ -18,7 +18,7 @@ The application supports three exam categories and selects 15 random questions f
 - Automatic score and percentage result
 - Restart option with a fresh set of questions
 - Tailwind CSS styling with a teal theme
-- Three selectable exam categories: Loading & Unloading, Office Facilities Cleaning, and Packaging Worker
+- Six selectable exam categories: Loading & Unloading, Office Facilities Cleaning, Packaging Worker, Kitchen Appliance Worker, Private Car Driver, and Warehouse Worker
 
 ## Tech Stack
 
@@ -41,6 +41,9 @@ src/
 │   └── ResultScreen.jsx
 ├── data/
 │   ├── cleaningQuestions.json
+│   ├── kitchenApplianceQuestions.json
+│   ├── privateCarDriverQuestions.json
+│   ├── warehouseWorkerQuestions.json
 │   ├── packagingQuestions.json
 │   └── questions.json
 ├── App.jsx
@@ -85,6 +88,9 @@ Questions are stored in these category-specific files:
 - [src/data/questions.json](src/data/questions.json): Loading and unloading
 - [src/data/cleaningQuestions.json](src/data/cleaningQuestions.json): Office facilities cleaning
 - [src/data/packagingQuestions.json](src/data/packagingQuestions.json): Packaging worker
+- [src/data/kitchenApplianceQuestions.json](src/data/kitchenApplianceQuestions.json): Kitchen appliance worker
+- [src/data/privateCarDriverQuestions.json](src/data/privateCarDriverQuestions.json): Private car driver
+- [src/data/warehouseWorkerQuestions.json](src/data/warehouseWorkerQuestions.json): Warehouse worker
 
 Each question follows this format:
 

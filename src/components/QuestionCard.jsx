@@ -8,21 +8,15 @@ function QuestionCard({ question, questionNumber, selectedAnswer, onSelect }) {
       )}
       <div className="grid gap-3">
         {question.options.map((option, index) => (
-          <div
-            className={`flex w-fit cursor-pointer items-center gap-3 py-2 text-left text-lg leading-relaxed ${selectedAnswer === index ? 'text-[rgb(27,82,87)]' : 'text-[#17212b]'} hover:text-[rgb(27,82,87)]`}
+          <button
+            className={`w-full max-w-3xl rounded-lg border px-4 py-3 text-left text-lg leading-relaxed transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(36,109,115)] ${selectedAnswer === index ? 'border-[rgb(27,82,87)] bg-[rgb(27,82,87)] text-white' : 'border-[#dce3e8] bg-white text-[#17212b] hover:border-[rgb(36,109,115)] hover:bg-[#eef6f6]'}`}
+            type="button"
             key={option}
+            aria-pressed={selectedAnswer === index}
+            onClick={() => onSelect(index)}
           >
-            <input
-              className="h-4.25 w-4.25 cursor-pointer accent-[rgb(36,109,115)]"
-              type="radio"
-              name={`question-${questionNumber}`}
-              value={index}
-              checked={selectedAnswer === index}
-              aria-label={option}
-              onChange={() => onSelect(index)}
-            />
-            <span>{option}</span>
-          </div>
+            {option}
+          </button>
         ))}
       </div>
     </div>

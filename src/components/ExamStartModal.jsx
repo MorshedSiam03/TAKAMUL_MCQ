@@ -1,21 +1,35 @@
 import { useState } from 'react';
 
-function ExamStartModal({ category, onStart }) {
+function ExamStartModal({ category, onStart, onBack }) {
   const [candidateName, setCandidateName] = useState('স্কিল ভেরিফিকেশন ট্রেনিং সেন্টার');
+  const [isClosing, setIsClosing] = useState(false);
+  const [closeAction, setCloseAction] = useState(null);
+
+  function closeWithAnimation(action) {
+    setCloseAction(() => action);
+    setIsClosing(true);
+  }
 
   function submitExamStart(event) {
     event.preventDefault();
     const trimmedName = candidateName.trim();
-    if (trimmedName) {
-      onStart(trimmedName);
+    if (trimmedName && !isClosing) {
+      closeWithAnimation(() => onStart(trimmedName));
+    }
+  }
+
+  function finishClosingAnimation() {
+    if (isClosing) {
+      closeAction?.();
     }
   }
 
   return (
     <div className="fixed inset-0 z-20 grid place-items-center bg-[rgba(23,33,43,0.52)] p-4 backdrop-blur-sm">
       <form
-        className="w-full max-w-lg rounded-2xl border border-[#dce3e8] bg-white p-6 shadow-[0_24px_70px_rgba(27,82,87,0.24)] sm:p-9"
+        className={`modal-panel w-full max-w-lg rounded-2xl border border-[#dce3e8] bg-white p-6 shadow-[0_24px_70px_rgba(27,82,87,0.24)] sm:p-9${isClosing ? ' is-closing' : ''}`}
         onSubmit={submitExamStart}
+        onAnimationEnd={finishClosingAnimation}
         aria-labelledby="exam-start-title"
       >
         <p className="mb-2 font-sans text-xs font-bold uppercase tracking-wider text-[rgb(36,109,115)]">Takamul MCQ</p>
@@ -46,12 +60,23 @@ function ExamStartModal({ category, onStart }) {
           />
         </label>
 
-        <button
-          className="w-full rounded-lg bg-[rgb(27,82,87)] px-6 py-4 font-sans text-lg font-bold text-white shadow-[0_5px_14px_rgba(27,82,87,0.2)] transition hover:bg-[rgb(36,109,115)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(27,82,87)]"
-          type="submit"
-        >
-          পরীক্ষা শুরু করুন
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            className="min-h-14 rounded-lg border border-[rgb(36,109,115)] bg-white px-4 py-2 font-sans text-sm font-bold text-[rgb(27,82,87)] transition hover:bg-[#edf5ef] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(27,82,87)]"
+            type="button"
+            onClick={() => !isClosing && closeWithAnimation(onBack)}
+            disabled={isClosing}
+          >
+            বাতিল
+          </button>
+          <button
+            className="min-h-14 flex-1 rounded-lg bg-[rgb(27,82,87)] px-4 py-3 font-sans text-base font-bold text-white shadow-[0_5px_14px_rgba(27,82,87,0.2)] transition hover:bg-[rgb(36,109,115)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(27,82,87)]"
+            type="submit"
+            disabled={isClosing}
+          >
+            পরীক্ষা শুরু করুন
+          </button>
+        </div>
       </form>
     </div>
   );

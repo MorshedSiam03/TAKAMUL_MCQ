@@ -171,7 +171,7 @@ function getRandomQuestions(bank, shouldShuffleOptions = false) {
   return shouldShuffleOptions ? randomQuestions.map(shuffleQuestionOptions) : randomQuestions;
 }
 
-function ExamSetupRoute({ onStart }) {
+function ExamSetupRoute({ onStart, onBack }) {
   const { categoryId } = useParams();
   const category = categories.find((item) => item.id === categoryId);
 
@@ -182,7 +182,11 @@ function ExamSetupRoute({ onStart }) {
   return (
     <>
       <CategorySelect categories={categories} onSelect={() => {}} />
-      <ExamStartModal category={category} onStart={(name) => onStart(category, name)} />
+      <ExamStartModal
+        category={category}
+        onStart={(name) => onStart(category, name)}
+        onBack={onBack}
+      />
     </>
   );
 }
@@ -381,7 +385,14 @@ function App() {
   }
 
   function restartQuiz() {
-    startExam(selectedCategory, candidateName);
+    setQuestions([]);
+    setCurrentQuestion(0);
+    setSelectedAnswers([]);
+    setExamStartedAt(null);
+    setElapsedSeconds(0);
+    setIsEndPage(false);
+    setIsFinished(false);
+    navigate(`/setup/${selectedCategory.id}`);
   }
 
   function finishExam() {
@@ -404,7 +415,7 @@ function App() {
     setElapsedSeconds(0);
     setIsEndPage(false);
     setIsFinished(false);
-    navigate('/');
+    navigate('/setup/occupation');
   }
 
   function selectCategory(category) {
@@ -426,7 +437,14 @@ function App() {
         path="/"
         element={<CategorySelect categories={categories} onSelect={selectCategory} />}
       />
-      <Route path="/setup/:categoryId" element={<ExamSetupRoute onStart={startExam} />} />
+      <Route
+        path="/setup/occupation"
+        element={<CategorySelect categories={categories} onSelect={selectCategory} />}
+      />
+      <Route
+        path="/setup/:categoryId"
+        element={<ExamSetupRoute onStart={startExam} onBack={changeCategory} />}
+      />
       <Route
         path="/complete/:categoryId"
         element={(

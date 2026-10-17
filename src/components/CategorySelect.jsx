@@ -44,7 +44,7 @@ function CategorySelect({ categories, onSelect }) {
               </span>
               <h3 className="m-0 text-xl font-bold text-[rgb(27,82,87)] group-hover:text-[rgb(36,109,115)]">{category.title}</h3>
               <p className="mt-2 font-sans text-sm leading-relaxed text-[#66727d]">{category.description}</p>
-              <span className="mt-5 block font-sans text-xs font-bold text-[rgb(36,109,115)]">১৫টি প্রশ্ন →</span>
+              <span className="mt-5 block font-sans text-xs font-bold text-[rgb(36,109,115)]">{(category.questionCount ?? 15).toLocaleString('bn-BD')}টি প্রশ্ন →</span>
             </button>
           ))}
         </div>

@@ -12,6 +12,7 @@ import scaffoldLaborerQuestions from './data/scaffoldLaborerQuestions.json';
 import barberQuestions from './data/barberQuestions.json';
 import laundryWorkerQuestions from './data/laundryWorkerQuestions.json';
 import gardenCleanerQuestions from './data/gardenCleanerQuestions.json';
+import landscapingWorkerQuestions from './data/landscapingWorkerQuestions.json';
 import CategorySelect from './components/CategorySelect';
 import ExamStartModal from './components/ExamStartModal';
 import ExamCompleteScreen from './components/ExamCompleteScreen';
@@ -92,6 +93,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'পরিষ্কারের সরঞ্জাম',
     icon: 'V',
+    questionCount: 30,
     questions: vehicleCleanerQuestions,
   },
   {
@@ -144,6 +146,17 @@ const categories = [
     icon: 'G',
     questions: gardenCleanerQuestions,
   },
+  {
+    id: 'landscaping-worker',
+    title: 'Landscaping Worker',
+    headerTitle: 'ল্যান্ডস্কেপিং ওয়ার্কার পরীক্ষা',
+    description: 'বাগান ও লন পরিচর্যা, যন্ত্রপাতি, রাসায়নিক ও বাইরের কাজের নিরাপত্তা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'বাগান পরিচর্যার সরঞ্জাম',
+    icon: 'LS',
+    questionCount: 30,
+    questions: landscapingWorkerQuestions,
+  },
 ];
 
 const EXAM_DURATION_SECONDS = 30 * 60;
@@ -166,8 +179,8 @@ function shuffleQuestionOptions(question) {
   };
 }
 
-function getRandomQuestions(bank, shouldShuffleOptions = false) {
-  const randomQuestions = [...bank].sort(() => Math.random() - 0.5).slice(0, 15);
+function getRandomQuestions(bank, questionCount = 15, shouldShuffleOptions = false) {
+  const randomQuestions = [...bank].sort(() => Math.random() - 0.5).slice(0, questionCount);
   return shouldShuffleOptions ? randomQuestions.map(shuffleQuestionOptions) : randomQuestions;
 }
 
@@ -356,7 +369,7 @@ function App() {
   function startExam(category, name = candidateName) {
     setSelectedCategory(category);
     setCandidateName(name);
-    setQuestions(getRandomQuestions(category.questions, true));
+    setQuestions(getRandomQuestions(category.questions, category.questionCount ?? 15, true));
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setExamStartedAt(Date.now());

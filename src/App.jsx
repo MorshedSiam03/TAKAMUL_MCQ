@@ -33,6 +33,7 @@ const categories = [
     image: '/images/LOAD-UNLOAD.png',
     imageAlt: 'পণ্য পরিবহনের ট্রাক',
     icon: '',
+    questionCount: 15,
     questions: questionBank,
   },
   {
@@ -43,6 +44,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'কর্মস্থলের সরঞ্জাম',
     icon: '✦',
+    questionCount: 15,
     questions: cleaningQuestions,
   },
   {
@@ -53,6 +55,7 @@ const categories = [
     image: '/images/Packaging.png',
     imageAlt: 'পণ্য সরানোর সরঞ্জাম',
     icon: '□',
+    questionCount: 15,
     questions: packagingQuestions,
   },
   {
@@ -63,6 +66,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'রান্নাঘরের সরঞ্জাম',
     icon: 'K',
+    questionCount: 15,
     questions: kitchenApplianceQuestions,
   },
   {
@@ -73,6 +77,7 @@ const categories = [
     image: '/images/LOAD-UNLOAD.png',
     imageAlt: 'যানবাহন',
     icon: 'D',
+    questionCount: 15,
     questions: privateCarDriverQuestions,
   },
   {
@@ -83,6 +88,7 @@ const categories = [
     image: '/images/Packaging.png',
     imageAlt: 'গুদামের সরঞ্জাম',
     icon: 'W',
+    questionCount: 15,
     questions: warehouseWorkerQuestions,
   },
   {
@@ -104,6 +110,7 @@ const categories = [
     image: '/images/LOAD-UNLOAD.png',
     imageAlt: 'পণ্য পরিবহনের ট্রাক',
     icon: 'P',
+    questionCount: 15,
     questions: portWorkerQuestions,
   },
   {
@@ -114,6 +121,7 @@ const categories = [
     image: '/images/forklift.svg',
     imageAlt: 'কর্মস্থলের সরঞ্জাম',
     icon: 'S',
+    questionCount: 15,
     questions: scaffoldLaborerQuestions,
   },
   {
@@ -124,6 +132,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'পরিষ্কার-পরিচ্ছন্নতার সরঞ্জাম',
     icon: 'B',
+    questionCount: 15,
     questions: barberQuestions,
   },
   {
@@ -134,6 +143,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'পরিষ্কারের সরঞ্জাম',
     icon: 'L',
+    questionCount: 15,
     questions: laundryWorkerQuestions,
   },
   {
@@ -144,6 +154,7 @@ const categories = [
     image: '/images/Cleaning.png',
     imageAlt: 'পরিষ্কারের সরঞ্জাম',
     icon: 'G',
+    questionCount: 15,
     questions: gardenCleanerQuestions,
   },
   {
@@ -180,7 +191,17 @@ function shuffleQuestionOptions(question) {
 }
 
 function getRandomQuestions(bank, questionCount = 15, shouldShuffleOptions = false) {
-  const randomQuestions = [...bank].sort(() => Math.random() - 0.5).slice(0, questionCount);
+  const shuffledQuestions = [...bank];
+
+  for (let index = shuffledQuestions.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledQuestions[index], shuffledQuestions[randomIndex]] = [
+      shuffledQuestions[randomIndex],
+      shuffledQuestions[index],
+    ];
+  }
+
+  const randomQuestions = shuffledQuestions.slice(0, questionCount);
   return shouldShuffleOptions ? randomQuestions.map(shuffleQuestionOptions) : randomQuestions;
 }
 

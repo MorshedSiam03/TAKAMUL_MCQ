@@ -1,4 +1,4 @@
-# Takamul MCQ
+# Takamol MCQ
 
 A responsive Bengali MCQ examination platform for loading and unloading safety training.
 

@@ -32,7 +32,7 @@ function ExamStartModal({ category, onStart, onBack }) {
         onAnimationEnd={finishClosingAnimation}
         aria-labelledby="exam-start-title"
       >
-        <p className="mb-2 font-sans text-xs font-bold uppercase tracking-wider text-[rgb(36,109,115)]">Takamul MCQ</p>
+        <p className="mb-2 font-sans text-xs font-bold uppercase tracking-wider text-[rgb(36,109,115)]">Takamol MCQ</p>
         <h2 id="exam-start-title" className="mb-6 text-2xl font-bold text-[rgb(27,82,87)]">পরীক্ষা শুরু করার তথ্য</h2>
 
         <label className="mb-4 block font-sans text-sm font-semibold text-[#17212b]">

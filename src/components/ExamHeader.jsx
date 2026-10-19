@@ -9,7 +9,7 @@ function ExamHeader({ currentQuestion, totalQuestions, title, remainingSeconds, 
         <div className="pointer-events-none absolute -bottom-32 left-[38%] h-56 w-56 rounded-full border-22 border-white/[0.07]" />
         <div className="relative flex items-center justify-between gap-6 max-[600px]:flex-col max-[600px]:items-stretch max-[600px]:gap-4">
           <div className="min-w-0">
-            <p className="mb-3 inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-teal-50 max-[380px]:mb-2 max-[380px]:text-[9px]">Takamul প্রশিক্ষণ মূল্যায়ন</p>
+            <p className="mb-3 inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-teal-50 max-[380px]:mb-2 max-[380px]:text-[9px]">Takamol প্রশিক্ষণ মূল্যায়ন</p>
             <h1 className="m-0 max-w-3xl wrap-break-word text-[clamp(24px,5vw,42px)] font-bold leading-tight tracking-tight text-white max-[600px]:text-[clamp(22px,7vw,20px)] max-[380px]:text-[23px]">{title}</h1>
             <p className="mt-2 font-sans text-xs text-teal-100/80 max-[380px]:mt-1 max-[380px]:text-[11px]">নিরাপদ কাজের পদ্ধতি ও সরঞ্জাম ব্যবহারের মূল্যায়ন</p>
           </div>

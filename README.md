@@ -1,144 +1,121 @@
 # Takamol MCQ
 
-A responsive Bengali MCQ examination platform for loading and unloading safety training.
+স্কিল ভেরিফিকেশন ট্রেনিং সেন্টার (SVTC), ঢাকার জন্য তৈরি একটি বাংলা-ভিত্তিক অনলাইন MCQ পরীক্ষা ও মূল্যায়ন অ্যাপ। পরীক্ষার্থী কাজের বিভাগ বেছে নিয়ে নির্দিষ্ট সময়ের মধ্যে প্রশ্নের উত্তর দিতে পারেন এবং শেষে স্কোর, পাসের অবস্থা ও প্রতিটি প্রশ্নের উত্তর পর্যালোচনা করতে পারেন।
 
-The application supports three exam categories and selects 15 random questions from the selected category's question bank. Questions can include real equipment photos, and the exam includes answer tracking, progress navigation, final submission confirmation, and score calculation.
+## বৈশিষ্ট্য
 
-## Features
+- ১৩টি কাজের বিভাগের জন্য আলাদা প্রশ্নব্যাংক
+- প্রতিটি পরীক্ষায় প্রশ্ন ও উত্তর বিকল্প এলোমেলোভাবে দেখানো
+- বিভাগভেদে ১৫ বা ৩০টি প্রশ্নের পরীক্ষা
+- পরীক্ষার্থীর নাম ও নির্বাচিত পরীক্ষার তথ্য দিয়ে পরীক্ষা শুরু
+- ৩০ মিনিটের কাউন্টডাউন; সময় শেষ হলে পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হয়
+- প্রশ্ন নেভিগেশন, উত্তর দেওয়া প্রশ্নের অগ্রগতি এবং নির্বাচিত উত্তরের চিহ্ন
+- পরীক্ষা জমা দেওয়ার আগে নিশ্চিতকরণ
+- স্কোর, শতকরা ফল, সঠিক/ভুল/অনুত্তরিত প্রশ্নের হিসাব
+- ৬০% বা তার বেশি পেলে উত্তীর্ণ হিসেবে ফলাফল
+- প্রশ্নভিত্তিক উত্তর পর্যালোচনা এবং নতুন প্রশ্ন নিয়ে পরীক্ষা পুনরায় দেওয়ার সুবিধা
+- মোবাইল, ট্যাবলেট ও ডেস্কটপের উপযোগী responsive layout
 
-- 15 random questions selected from the question bank
-- Bengali loading and unloading safety questions
-- Image-based equipment questions with real photos
-- Radio-button answer selection
-- Answer required before moving to the next question
-- Vertical question navigator with answered and current states
-- Responsive layout for desktop, tablet, and mobile
-- Three randomly positioned finish buttons on the end page
-- Two-step final confirmation with red cancel and green confirm controls
-- Automatic score and percentage result
-- Restart option with a fresh set of questions
-- Tailwind CSS styling with a teal theme
-- Six selectable exam categories: Loading & Unloading, Office Facilities Cleaning, Packaging Worker, Kitchen Appliance Worker, Private Car Driver, and Warehouse Worker
+## পরীক্ষার বিভাগ
 
-## Tech Stack
+| বিভাগ | প্রশ্ন |
+| --- | ---: |
+| Loading & Unloading Worker | ১৫ |
+| Office Facilities Cleaning Worker | ১৫ |
+| Packaging Worker | ১৫ |
+| Kitchen Appliance Worker | ১৫ |
+| Private Car Driver | ১৫ |
+| Warehouse Worker | ১৫ |
+| Vehicle Cleaner | ৩০ |
+| Port Worker | ১৫ |
+| Scaffold Laborer | ১৫ |
+| Barber | ১৫ |
+| Laundry Worker | ১৫ |
+| Garden Cleaner | ১৫ |
+| Landscaping Worker | ৩০ |
+
+## ব্যবহৃত প্রযুক্তি
 
 - React 19
 - Vite 8
 - Tailwind CSS 4
+- React Router 7
 - ESLint
 
-## Project Structure
+## চালানোর আগে
 
-```text
-src/
-├── components/
-│   ├── EndPage.jsx
-│   ├── ExamHeader.jsx
-│   ├── ProgressBar.jsx
-│   ├── QuestionCard.jsx
-│   ├── QuestionFooter.jsx
-│   ├── QuizFooter.jsx
-│   └── ResultScreen.jsx
-├── data/
-│   ├── cleaningQuestions.json
-│   ├── kitchenApplianceQuestions.json
-│   ├── privateCarDriverQuestions.json
-│   ├── warehouseWorkerQuestions.json
-│   ├── packagingQuestions.json
-│   └── questions.json
-├── App.jsx
-├── index.css
-└── main.jsx
-```
-
-## Getting Started
-
-### Requirements
-
-- Node.js `22.12+`
+- Node.js `22.12.0` বা তার পরের সংস্করণ
 - npm
 
-### Install
+## লোকাল পরিবেশে চালানো
 
 ```bash
 npm install
-```
-
-### Run locally
-
-```bash
 npm run dev
 ```
 
-The development server will print the local URL in the terminal, usually `http://localhost:5173`.
+টার্মিনালে দেখানো লোকাল URL ব্রাউজারে খুলুন (সাধারণত `http://localhost:5173`)।
 
-## Available Scripts
+## npm স্ক্রিপ্ট
 
-| Command | Description |
+| কমান্ড | কাজ |
 | --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Create a production build in `dist` |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint |
+| `npm run dev` | Vite development server চালু |
+| `npm run build` | production build তৈরি করে `dist/`-এ রাখে |
+| `npm run preview` | production build লোকালি preview |
+| `npm run lint` | ESLint দিয়ে কোড পরীক্ষা |
 
-## Managing Questions
+## প্রকল্পের কাঠামো
 
-Questions are stored in these category-specific files:
+```text
+.
+├── public/
+│   └── images/                 # লোগো, বিভাগ ও প্রশ্নের ছবি
+├── src/
+│   ├── components/             # পরীক্ষা, প্রশ্ন, ফলাফল ও বিভাগ নির্বাচন UI
+│   ├── data/                   # বিভাগের MCQ প্রশ্নব্যাংক (JSON)
+│   ├── App.jsx                 # বিভাগ, পরীক্ষা ও ফলাফলের মূল flow
+│   ├── index.css               # Tailwind ও modal animation
+│   └── main.jsx                # React entry point ও router
+├── index.html
+├── package.json
+└── vite.config.js
+```
 
-- [src/data/questions.json](src/data/questions.json): Loading and unloading
-- [src/data/cleaningQuestions.json](src/data/cleaningQuestions.json): Office facilities cleaning
-- [src/data/packagingQuestions.json](src/data/packagingQuestions.json): Packaging worker
-- [src/data/kitchenApplianceQuestions.json](src/data/kitchenApplianceQuestions.json): Kitchen appliance worker
-- [src/data/privateCarDriverQuestions.json](src/data/privateCarDriverQuestions.json): Private car driver
-- [src/data/warehouseWorkerQuestions.json](src/data/warehouseWorkerQuestions.json): Warehouse worker
+## প্রশ্নব্যাংক সম্পাদনা
 
-Each question follows this format:
+প্রতিটি বিভাগের প্রশ্ন `src/data/`-এর সংশ্লিষ্ট JSON ফাইলে থাকে। উদাহরণ:
 
 ```json
 {
-  "question": "এই যন্ত্রটির নাম কী?",
-  "image": "/images/equipment.jpg",
-  "imageAlt": "যন্ত্রটির ছবি",
-  "options": ["ফর্কলিফট", "কনভেয়ার", "প্যালেট ট্রাক", "হ্যান্ড ট্রাক"],
-  "answer": 0
+  "question": "প্রশ্নের লেখা",
+  "options": ["প্রথম উত্তর", "দ্বিতীয় উত্তর", "তৃতীয় উত্তর", "চতুর্থ উত্তর"],
+  "answer": 0,
+  "image": "/images/example.jpg",
+  "imageAlt": "ছবির বর্ণনা"
 }
 ```
 
-The `image` and `imageAlt` fields are optional. The `answer` value is the zero-based index of the correct option:
+- `question`: প্রশ্নের লেখা
+- `options`: দেখানো উত্তর বিকল্পগুলোর array
+- `answer`: সঠিক উত্তরের zero-based index (`0` হলো প্রথম বিকল্প)
+- `image` এবং `imageAlt`: ঐচ্ছিক; ছবিসহ প্রশ্নের জন্য ব্যবহার করুন
 
-- `0` = first option
-- `1` = second option
-- `2` = third option
-- `3` = fourth option
+পরিবর্তনের সময় JSON-এর বৈধতা, প্রতিটি `answer` index-এর জন্য সংশ্লিষ্ট option থাকা, এবং ছবির URL/পাথ কাজ করছে কি না যাচাই করুন। পরীক্ষায় যত প্রশ্ন নির্ধারিত আছে, সংশ্লিষ্ট প্রশ্নব্যাংকে অন্তত ততগুলো বৈধ প্রশ্ন থাকতে হবে। বিভাগের সংখ্যা বা পরীক্ষার প্রশ্নসংখ্যা বদলালে `src/App.jsx`-এর বিভাগ কনফিগারেশনও হালনাগাদ করুন।
 
-Keep at least 15 valid questions in the bank so the random exam can be generated correctly.
+## যাচাই
 
-## Production Build
-
-Create the production bundle with:
+পরিবর্তন প্রকাশের আগে চালান:
 
 ```bash
+npm run lint
 npm run build
 ```
 
-The output is generated in the `dist` directory.
+## Vercel-এ প্রকাশ
 
-## Deploying to Vercel
+রিপোজিটরিটি Vercel-এ import করে Vite project হিসেবে deploy করুন। এই রিপোজিটরির `vercel.json`-এ build ও SPA routing সেট করা আছে।
 
-This is a Vite application and includes a `vercel.json` configuration.
-
-1. Import the repository into Vercel.
-2. Set the project root to the folder containing `package.json`.
-3. Use the Vite framework preset.
-4. Use `npm run build` as the build command.
-5. Use `dist` as the output directory.
-6. Deploy the project.
-
-If the repository contains `my-react-app` as a subfolder, set Vercel's **Root Directory** to `my-react-app`.
-
-## Development Notes
-
-- Use Node.js `22.12+` to match the Vite and Rolldown engine requirements.
-- Do not add platform-specific native packages directly to `package.json`.
-- Keep image URLs reachable from the deployed site.
-- Run both `npm run build` and `npm run lint` before deploying.
+- Build command: `npm run build`
+- Output directory: `dist`
+- Framework preset: Vite

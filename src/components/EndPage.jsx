@@ -16,7 +16,7 @@ function EndPage({ onComplete, onCancel }) {
   return (
     <div className="fixed inset-0 z-20 grid place-items-center bg-[rgba(23,33,43,0.48)] p-4 backdrop-blur-[2px]">
       <section
-        className="flex min-h-80 w-full max-w-[660px] items-center justify-evenly rounded-[28px] border border-[#e5e8e8] bg-white px-6 py-5 shadow-[0_18px_55px_rgba(23,33,43,0.24)] sm:px-14"
+        className="flex min-h-80 w-full max-w-165 items-center justify-evenly rounded-[28px] border border-[#e5e8e8] bg-white px-6 py-5 shadow-[0_18px_55px_rgba(23,33,43,0.24)] sm:px-14"
         role="dialog"
         aria-modal="true"
         aria-label={confirmationStep === 1 ? 'পরীক্ষা সমাপ্তির নিশ্চয়তা' : 'পরীক্ষা জমা দেওয়ার চূড়ান্ত নিশ্চয়তা'}

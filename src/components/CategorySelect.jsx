@@ -2,7 +2,7 @@ function CategorySelect({ categories, onSelect }) {
   return (
     <main className="min-h-screen bg-[#f4f5f1] text-[#172b2a]">
       <header className="relative overflow-hidden border-b-4 border-[#e7a52b] bg-[linear-gradient(112deg,#123d3b,#1d5550_62%,#28665c)] text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(135deg,transparent_49.7%,white_50%,transparent_50.3%)] [background-size:28px_28px]" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-[linear-gradient(135deg,transparent_49.7%,white_50%,transparent_50.3%)] bg-size-[28px_28px]" />
         <div className="relative mx-auto flex w-full max-w-7xl items-center gap-5 px-5 py-6 sm:px-8 sm:py-8">
           <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white p-2 shadow-[0_8px_20px_rgba(0,0,0,0.16)] sm:h-20 sm:w-20">
             <img className="h-full w-full object-contain" src="/images/link-preview-svp-removebg-preview.png" alt="SVTC logo" />
@@ -79,7 +79,7 @@ function CategorySelect({ categories, onSelect }) {
             </a>
           </div>
           <div className="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            <div className="rounded-lg border border-white/15 bg-white/[0.06] p-4">
+            <div className="rounded-lg border border-white/15 bg-white/6 p-4">
               <h2 className="mb-3 font-sans text-xs font-bold uppercase tracking-wider text-[#f2c15b]">যোগাযোগ</h2>
               <a className="block font-sans text-base font-semibold text-white underline decoration-white/40 underline-offset-4 transition hover:text-[#f2c15b]" href="tel:+8801620009550">
                 +880 1620-009550
@@ -88,7 +88,7 @@ function CategorySelect({ categories, onSelect }) {
                 +880 1954-456543
               </a>
             </div>
-            <div className="rounded-lg border border-white/15 bg-white/[0.06] p-4">
+            <div className="rounded-lg border border-white/15 bg-white/6 p-4">
               <h2 className="mb-2 font-sans text-xs font-bold uppercase tracking-wider text-[#f2c15b]">খোলার সময়</h2>
               <p className="m-0 font-sans text-sm leading-relaxed text-white/90">শনিবার–বুধবার · সকাল ১১টা–সন্ধ্যা ৭টা</p>
             </div>

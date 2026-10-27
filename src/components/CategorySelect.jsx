@@ -94,6 +94,9 @@ function CategorySelect({ categories, onSelect }) {
             </div>
           </div>
         </div>
+        <div className="mx-auto w-full max-w-7xl border-t border-white/15 px-5 py-4 text-center font-sans text-xs text-white/70 sm:px-8 sm:text-right">
+          Takamol MCQ · Developed by <span className="font-semibold text-[#f2c15b]">Morshed Siam</span>
+        </div>
       </footer>
     </main>
   );

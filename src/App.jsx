@@ -110,7 +110,7 @@ const categories = [
     image: '/images/LOAD-UNLOAD.png',
     imageAlt: 'পণ্য পরিবহনের ট্রাক',
     icon: 'P',
-    questionCount: 15,
+    questionCount: 30,
     questions: portWorkerQuestions,
   },
   {

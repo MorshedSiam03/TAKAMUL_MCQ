@@ -12,6 +12,11 @@ import scaffoldLaborerQuestions from './data/scaffoldLaborerQuestions.json';
 import barberQuestions from './data/barberQuestions.json';
 import laundryWorkerQuestions from './data/laundryWorkerQuestions.json';
 import gardenCleanerQuestions from './data/gardenCleanerQuestions.json';
+import sweetsMakerQuestions from './data/sweetsMakerQuestions.json';
+import hospitalCleanerQuestions from './data/hospitalCleanerQuestions.json';
+import constructionWorkerQuestions from './data/constructionWorkerQuestions.json';
+import contractingWorkerQuestions from './data/contractingWorkerQuestions.json';
+import waterTankCleanerQuestions from './data/waterTankCleanerQuestions.json';
 import landscapingWorkerQuestions from './data/landscapingWorkerQuestions.json';
 import CategorySelect from './components/CategorySelect';
 import ExamStartModal from './components/ExamStartModal';
@@ -158,6 +163,61 @@ const categories = [
     questions: gardenCleanerQuestions,
   },
   {
+    id: 'sweets-maker',
+    title: 'Sweets Maker',
+    headerTitle: 'সুইটস মেকার পরীক্ষা',
+    description: 'মিষ্টি তৈরির উপকরণ, খাদ্য নিরাপত্তা, তাপমাত্রা ব্যবস্থাপনা ও হাইজিন।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'সুইটস প্রস্তুতকরণ সরঞ্জাম',
+    icon: 'SW',
+    questionCount: 15,
+    questions: sweetsMakerQuestions,
+  },
+  {
+    id: 'hospital-cleaner',
+    title: 'Hospital Cleaner',
+    headerTitle: 'হাসপাতাল ক্লিনার পরীক্ষা',
+    description: 'হাসপাতাল পরিষ্কার, জীবাণুনাশক ব্যবহার, বর্জ্য segregation এবং infection control।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'হাসপাতাল পরিষ্কারের সরঞ্জাম',
+    icon: 'HC',
+    questionCount: 15,
+    questions: hospitalCleanerQuestions,
+  },
+  {
+    id: 'construction-worker',
+    title: 'Construction Worker',
+    headerTitle: 'কনস্ট্রাকশন ওয়ার্কার পরীক্ষা',
+    description: 'কাঠামো কাজ, PPE, যন্ত্রপাতি, excavation এবং বিপদ-সচেতনতা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'কনস্ট্রাকশন কাজের সরঞ্জাম',
+    icon: 'CW',
+    questionCount: 15,
+    questions: constructionWorkerQuestions,
+  },
+  {
+    id: 'contracting-worker',
+    title: 'Constracting Worker',
+    headerTitle: 'কন্ট্রাক্টিং ওয়ার্কার পরীক্ষা',
+    description: 'সাইট নিরাপত্তা, কাজের পরিকল্পনা, টুলস ব্যবহারের নিয়ম এবং কাজের মানদণ্ড।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'সাইট ওয়ার্ক টুলস',
+    icon: 'CT',
+    questionCount: 15,
+    questions: contractingWorkerQuestions,
+  },
+  {
+    id: 'water-tank-cleaner',
+    title: 'Water Tank Cleaner',
+    headerTitle: 'ওয়াটার ট্যাংক ক্লিনার পরীক্ষা',
+    description: 'জলাধার পরিষ্কার, confined space safety, ventilation এবং chemical handling।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'ট্যাংক পরিষ্কারের সরঞ্জাম',
+    icon: 'WT',
+    questionCount: 30,
+    questions: waterTankCleanerQuestions,
+  },
+  {
     id: 'landscaping-worker',
     title: 'Landscaping Worker',
     headerTitle: 'ল্যান্ডস্কেপিং ওয়ার্কার পরীক্ষা',
@@ -170,7 +230,9 @@ const categories = [
   },
 ];
 
-const EXAM_DURATION_SECONDS = 30 * 60;
+function getExamDurationSeconds(questionCount = 15) {
+  return (questionCount || 15) * 2 * 60;
+}
 
 function shuffleQuestionOptions(question) {
   const options = question.options.map((option, index) => ({
@@ -255,6 +317,8 @@ function ExamRoute({
 
   const question = questions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
+  const categoryQuestionCount = selectedCategory?.questionCount ?? questions.length ?? 15;
+  const examDurationSeconds = getExamDurationSeconds(categoryQuestionCount);
 
   return (
     <main className="h-screen w-full overflow-hidden bg-[#f5f1eb] p-0">
@@ -273,7 +337,7 @@ function ExamRoute({
                 currentQuestion={currentQuestion}
                 totalQuestions={questions.length}
                 title={selectedCategory.headerTitle}
-                remainingSeconds={Math.max(EXAM_DURATION_SECONDS - elapsedSeconds, 0)}
+                remainingSeconds={Math.max(examDurationSeconds - elapsedSeconds, 0)}
                 onChangeCategory={onChangeCategory}
                 onFinishExam={onFinishRequest}
               />
@@ -362,6 +426,8 @@ function App() {
   const [isFinished, setIsFinished] = useState(false);
 
   const answeredCount = selectedAnswers.filter((answer) => answer !== undefined).length;
+  const categoryQuestionCount = selectedCategory?.questionCount ?? questions.length ?? 15;
+  const examDurationSeconds = getExamDurationSeconds(categoryQuestionCount);
   const score = selectedAnswers.reduce(
     (total, answer, index) => total + (answer === questions[index].answer ? 1 : 0),
     0,
@@ -374,8 +440,8 @@ function App() {
 
     const timerId = window.setInterval(() => {
       const elapsed = Math.floor((Date.now() - examStartedAt) / 1000);
-      if (elapsed >= EXAM_DURATION_SECONDS) {
-        setElapsedSeconds(EXAM_DURATION_SECONDS);
+      if (elapsed >= examDurationSeconds) {
+        setElapsedSeconds(examDurationSeconds);
         setIsEndPage(false);
         setIsFinished(true);
         navigate(`/complete/${selectedCategory.id}`);
@@ -385,7 +451,7 @@ function App() {
     }, 1000);
 
     return () => window.clearInterval(timerId);
-  }, [examStartedAt, isFinished, navigate, selectedCategory]);
+  }, [examDurationSeconds, examStartedAt, isFinished, navigate, selectedCategory]);
 
   function startExam(category, name = candidateName) {
     setSelectedCategory(category);

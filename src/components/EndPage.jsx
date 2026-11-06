@@ -77,18 +77,18 @@ function EndPage({ onComplete, onCancel, answeredCount = 0, totalQuestions = 0 }
                     onClick={() => setConfirmationStep(2)}
                     className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
                   >
-                    <span className="font-serif text-[clamp(14px,1.6vw,24px)] leading-tight">সমাপ্ত</span>
-                    <span className="font-sans text-[clamp(24px,3vw,34px)] font-black leading-none text-[#0c5f5e]">✓</span>
+                    <span className="font-serif text-[clamp(18px,1.6vw,24px)] leading-tight">সমাপ্ত</span>
+                    <span className="font-sans text-[clamp(30px,3vw,34px)] font-black leading-none text-[#0c5f5e]">✓</span>
                   </button>
 
                   <button
                     type="button"
                     aria-label="সমাপ্ত করতে চাই না"
                     onClick={() => closeWithAnimation(onCancel)}
-                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
+                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-1 sm:gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
                   >
-                    <span className="font-serif text-[clamp(14px,1.6vw,24px)] leading-tight">বাতিল করুন</span>
-                    <span className="font-sans text-[clamp(24px,3vw,45px)] pb-2 font-black leading-none text-[#1b2a2d]">×</span>
+                    <span className="font-serif text-[clamp(18px,1.6vw,24px)] leading-tight">বাতিল করুন</span>
+                    <span className="font-sans text-[clamp(35px,3vw,45px)] pb-2  font-black leading-none text-[#d10e0e]">×</span>
                   </button>
                 </div>
               </>
@@ -104,20 +104,20 @@ function EndPage({ onComplete, onCancel, answeredCount = 0, totalQuestions = 0 }
                     type="button"
                     aria-label="সমাপ্ত করতে চাই না"
                     onClick={() => setConfirmationStep(1)}
-                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
+                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-1 sm:gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
                   >
-                    <span className="font-serif text-[clamp(14px,1.6vw,24px)] leading-tight">বাতিল করুন</span>
-                    <span className="font-sans text-[clamp(24px,3vw,45px)] pb-2 font-black leading-none text-[#1b2a2d]">×</span>
+                    <span className="font-serif text-[clamp(18px,1.6vw,24px)] leading-tight">বাতিল করুন</span>
+                    <span className="font-sans text-[clamp(35px,3vw,45px)] pb-2  font-black leading-none text-[#d10e0e]">×</span>
                   </button>
 
                   <button
                     type="button"
                     aria-label="সমাপ্ত করুন"
                     onClick={() => closeWithAnimation(onComplete)}
-                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-2 rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
+                    className="mx-auto flex w-full max-w-65 min-h-14.5 items-center justify-center gap-1 sm:gap-2  rounded-lg border border-[#b9c6c2] bg-[#dfe7e4] px-3 py-2 text-center text-[#173b3f] shadow-[inset_0_0_0_1px_rgba(22,64,70,0.06)] transition hover:bg-[#d8e6e1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173b3f] sm:min-h-17.5 sm:px-4"
                   >
-                    <span className="font-serif text-[clamp(14px,1.6vw,24px)] leading-tight">সমাপ্ত</span>
-                    <span className="font-sans text-[clamp(24px,3vw,34px)] font-black leading-none text-[#0c5f5e]">✓</span>
+                    <span className="font-serif text-[clamp(18px,1.6vw,24px)] leading-tight">সমাপ্ত</span>
+                    <span className="font-sans text-[clamp(30px,3vw,45px)] font-black leading-none text-[#0c5f5e]">✓</span>
                   </button>
                 </div>
               </>

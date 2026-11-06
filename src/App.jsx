@@ -18,6 +18,24 @@ import constructionWorkerQuestions from './data/constructionWorkerQuestions.json
 import contractingWorkerQuestions from './data/contractingWorkerQuestions.json';
 import waterTankCleanerQuestions from './data/waterTankCleanerQuestions.json';
 import landscapingWorkerQuestions from './data/landscapingWorkerQuestions.json';
+import ironnerQuestions from './data/ironerQuestions.json';
+import manufacturingOfficerQuestions from './data/manufacturingOfficerQuestions.json';
+import welderQuestions from './data/welderQuestions.json';
+import blacksmithQuestions from './data/blacksmithQuestions.json';
+import baristaQuestions from './data/baristaQuestions.json';
+import chefQuestions from './data/chefQuestions.json';
+import waiterQuestions from './data/waiterQuestions.json';
+import fastFoodQuestions from './data/fastFoodQuestions.json';
+import electricianQuestions from './data/electricianQuestions.json';
+import butcherQuestions from './data/butcherQuestions.json';
+import plumberQuestions from './data/plumberQuestions.json';
+import miniTruckDriverQuestions from './data/miniTruckDriverQuestions.json';
+import laundryManQuestions from './data/laundryManQuestions.json';
+import weldingWorkerQuestions from './data/weldingWorkerQuestions.json';
+import cableConnectorQuestions from './data/cableConnectorQuestions.json';
+import powerLineQuestions from './data/powerLineQuestions.json';
+import workshopWorkerQuestions from './data/workshopWorkerQuestions.json';
+import streetCleanerQuestions from './data/streetCleanerQuestions.json';
 import CategorySelect from './components/CategorySelect';
 import ExamStartModal from './components/ExamStartModal';
 import ExamCompleteScreen from './components/ExamCompleteScreen';
@@ -227,6 +245,204 @@ const categories = [
     icon: 'LS',
     questionCount: 30,
     questions: landscapingWorkerQuestions,
+  },
+  {
+    id: 'ironer',
+    title: 'Ironer',
+    headerTitle: 'আইরোনার পরীক্ষা',
+    description: 'গরম আয়রন, কাপড়ের নিরাপত্তা, তাপমাত্রা নিয়ন্ত্রণ এবং সঠিক স্ট ironing অনুশীলন।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'আয়রন ও কাপড়ের নিরাপত্তা',
+    icon: 'IR',
+    questionCount: 15,
+    questions: ironnerQuestions,
+  },
+  {
+    id: 'manufacturing-officer',
+    title: 'Manufacturing Officer',
+    headerTitle: 'ম্যানুফ্যাকচারিং অফিসার পরীক্ষা',
+    description: 'উৎপাদন তদারকি, মেশিন নিরাপত্তা, PPE, বর্জ্য ব্যবস্থাপনা ও কার্যকরী সুরক্ষা নিয়ম।',
+    image: '/images/LOAD-UNLOAD.png',
+    imageAlt: 'ম্যানুফ্যাকচারিং অফিসার কাজের সরঞ্জাম',
+    icon: 'MO',
+    questionCount: 15,
+    questions: manufacturingOfficerQuestions,
+  },
+  {
+    id: 'welder',
+    title: 'Welder',
+    headerTitle: 'ওয়েল্ডার পরীক্ষা',
+    description: 'ওয়েল্ডিং নিরাপত্তা, আগুন-সুরক্ষা, PPE এবং গরম ধাতু ব্যবস্থাপনা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ওয়েল্ডিং সরঞ্জাম',
+    icon: 'W',
+    questionCount: 15,
+    questions: welderQuestions,
+  },
+  {
+    id: 'blacksmith',
+    title: 'Blacksmith',
+    headerTitle: 'ব্ল্যাকস্মিথ পরীক্ষা',
+    description: 'লোহা গরম করা, হাতের সুরক্ষা, কর্মক্ষেত্র নিরাপত্তা ও সরঞ্জাম পরিচালনা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ব্ল্যাকস্মিথের কাজের সরঞ্জাম',
+    icon: 'BS',
+    questionCount: 15,
+    questions: blacksmithQuestions,
+  },
+  {
+    id: 'barista',
+    title: 'Barista',
+    headerTitle: 'বারিস্টা পরীক্ষা',
+    description: 'কফি প্রস্তুতি, তাপমাত্রা নিয়ন্ত্রণ, স্বাস্থ্যবিধি ও নিরাপদ পরিষেবা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'বারিস্টার সরঞ্জাম',
+    icon: 'B',
+    questionCount: 15,
+    questions: baristaQuestions,
+  },
+  {
+    id: 'chef',
+    title: 'Chef',
+    headerTitle: 'শেফ পরীক্ষা',
+    description: 'খাদ্য নিরাপত্তা, রান্নাঘরের স্বাস্থ্যবিধি, গরম পাত্র ব্যবস্থাপনা ও সুরক্ষা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'রান্নাঘরের সরঞ্জাম',
+    icon: 'C',
+    questionCount: 15,
+    questions: chefQuestions,
+  },
+  {
+    id: 'waiter',
+    title: 'Waiter',
+    headerTitle: 'ওয়েটার পরীক্ষা',
+    description: 'খাবার পরিবেশন, পরিষ্কার-পরিচ্ছন্নতা, গ্রাহক সেবা ও নিরাপদ পরিবহন।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'পরিবেশন সরঞ্জাম',
+    icon: 'WT',
+    questionCount: 15,
+    questions: waiterQuestions,
+  },
+  {
+    id: 'fast-food-maker',
+    title: 'Fast Food Maker',
+    headerTitle: 'ফাস্ট ফুড মেকার পরীক্ষা',
+    description: 'ফাস্ট ফুড প্রস্তুতি, তেল ব্যবস্থাপনা, খাদ্য সুরক্ষা ও নিরাপদ রান্না।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'ফাস্ট ফুড প্রস্তুতির সরঞ্জাম',
+    icon: 'FF',
+    questionCount: 15,
+    questions: fastFoodQuestions,
+  },
+  {
+    id: 'building-electrician',
+    title: 'Building Electrician',
+    headerTitle: 'বিল্ডিং ইলেকট্রিশিয়ান পরীক্ষা',
+    description: 'ইলেকট্রিক কাজ, শক-সুরক্ষা, বর্তমান ব্যবস্থাপনা ও নিরাপদ ইনস্টলেশন।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ইলেকট্রিক ওয়ার্কের সরঞ্জাম',
+    icon: 'BE',
+    questionCount: 15,
+    questions: electricianQuestions,
+  },
+  {
+    id: 'butcher',
+    title: 'Butcher',
+    headerTitle: 'বাটচার পরীক্ষা',
+    description: 'মাংস কাটা, স্বাস্থ্যবিধি, ছুরি নিরাপত্তা এবং খাদ্য সুরক্ষা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'মাংস কাটা সরঞ্জাম',
+    icon: 'BU',
+    questionCount: 15,
+    questions: butcherQuestions,
+  },
+  {
+    id: 'plumber',
+    title: 'Plumber',
+    headerTitle: 'প্লাম্বার পরীক্ষা',
+    description: 'পাইপ, জল ও গ্যাস সংযোগের নিরাপত্তা, ফিটিং এবং চাপ ব্যবস্থাপনা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'পাইপ ও ফিটিং',
+    icon: 'PL',
+    questionCount: 15,
+    questions: plumberQuestions,
+  },
+  {
+    id: 'mini-truck-driver',
+    title: 'Mini Truck Driver',
+    headerTitle: 'মিনি ট্রাক ড্রাইভার পরীক্ষা',
+    description: 'গাড়ি চালনা, লোড নিরাপত্তা, ব্রেক ও রুট সুরক্ষা।',
+    image: '/images/LOAD-UNLOAD.png',
+    imageAlt: 'মিনি ট্রাক',
+    icon: 'MT',
+    questionCount: 15,
+    questions: miniTruckDriverQuestions,
+  },
+  {
+    id: 'laundry-man',
+    title: 'Laundry Man',
+    headerTitle: 'লন্ড্রি ম্যান পরীক্ষা',
+    description: 'কাপড় ধোয়া, গরম পানি ব্যবহার, মেশিন নিরাপত্তা ও পরিচ্ছন্নতা।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'লন্ড্রি মেশিন',
+    icon: 'LM',
+    questionCount: 15,
+    questions: laundryManQuestions,
+  },
+  {
+    id: 'welding-worker',
+    title: 'Welding Worker',
+    headerTitle: 'ওয়েল্ডিং ওয়ার্কার পরীক্ষা',
+    description: 'ওয়েল্ডিং নিরাপত্তা, স্পার্ক ও আগুন প্রতিরোধ, PPE ও সরঞ্জাম ব্যবস্থাপনা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ওয়েল্ডিং কর্মী',
+    icon: 'WW',
+    questionCount: 15,
+    questions: weldingWorkerQuestions,
+  },
+  {
+    id: 'power-cable-connector',
+    title: 'Power Cable Connector',
+    headerTitle: 'পাওয়ার ক্যাবল কানেক্টর পরীক্ষা',
+    description: 'ক্যাবল সংযোগ, নিরাপদ বিচ্ছিন্নতা, সঠিক রেটিং ও শক রোধ।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ক্যাবল কানেক্টর',
+    icon: 'PC',
+    questionCount: 15,
+    questions: cableConnectorQuestions,
+  },
+  {
+    id: 'power-line-operator',
+    title: 'Power Line Operator',
+    headerTitle: 'পাওয়ার লাইন অপারেটর পরীক্ষা',
+    description: 'উচ্চ ভোল্টেজ সুরক্ষা, কাজের নীতিমালা ও সিস্টেম নিরাপত্তা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'পাওয়ার লাইন',
+    icon: 'PO',
+    questionCount: 15,
+    questions: powerLineQuestions,
+  },
+  {
+    id: 'workshop-worker',
+    title: 'Workshop Worker',
+    headerTitle: 'ওয়ার্কশপ ওয়ার্কার পরীক্ষা',
+    description: 'ওয়ার্কশপে নিরাপদ কাজ, সরঞ্জাম ব্যবহারের নিয়ম ও পরিচ্ছন্নতা।',
+    image: '/images/images__1_-removebg-preview.png',
+    imageAlt: 'ওয়ার্কশপ সরঞ্জাম',
+    icon: 'WS',
+    questionCount: 15,
+    questions: workshopWorkerQuestions,
+  },
+  {
+    id: 'street-cleaner-worker',
+    title: 'Street Cleaner Worker',
+    headerTitle: 'স্ট্রিট ক্লিনার ওয়ার্কার পরীক্ষা',
+    description: 'সড়ক পরিষ্কার, নিরাপদ কাজের পথ, বর্জ্য ব্যবস্থাপনা ও স্বাস্থ্যবিধি।',
+    image: '/images/Cleaning.png',
+    imageAlt: 'সড়ক পরিষ্কারের সরঞ্জাম',
+    icon: 'SC',
+    questionCount: 15,
+    questions: streetCleanerQuestions,
   },
 ];
 

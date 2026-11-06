@@ -370,7 +370,12 @@ function ExamRoute({
         </div>
       </section>
       {isEndPage && (
-        <EndPage onComplete={onFinishConfirm} onCancel={onFinishCancel} />
+        <EndPage
+          onComplete={onFinishConfirm}
+          onCancel={onFinishCancel}
+          answeredCount={answeredCount}
+          totalQuestions={questions.length}
+        />
       )}
     </main>
   );

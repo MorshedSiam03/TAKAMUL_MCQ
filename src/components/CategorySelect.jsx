@@ -4,7 +4,7 @@ function CategorySelect({ categories, onSelect }) {
       <header className="relative overflow-hidden border-b-4 border-[#e7a52b] bg-[linear-gradient(112deg,#123d3b,#1d5550_62%,#28665c)] text-white">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-[linear-gradient(135deg,transparent_49.7%,white_50%,transparent_50.3%)] bg-size-[28px_28px]" />
         <div className="relative mx-auto flex w-full max-w-7xl items-center gap-5 px-5 py-6 sm:px-8 sm:py-8">
-          <div className="grid shrink-0 place-items-center sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+          <div className="grid shrink-0 place-items-center h-24 w-24">
             <img className=" object-contain" src="https://raw.githubusercontent.com/MorshedSiam03/TAKAMUL_MCQ/refs/heads/main/src/assets/Skills_Verification_Training_Center_Emblem-removebg-preview.png" alt="SVTC logo" />
           </div>
           <div className="min-w-0">
@@ -53,7 +53,7 @@ function CategorySelect({ categories, onSelect }) {
         <div className="mx-auto grid w-full max-w-7xl gap-7 px-5 py-8 sm:px-8 lg:grid-cols-[1.6fr_1fr] lg:gap-12">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="grid  shrink-0 place-items-center sm:h-14 sm:w-14">
+              <span className="grid  shrink-0 place-items-center h-14 w-14">
                 <img className="object-contain" src="https://raw.githubusercontent.com/MorshedSiam03/TAKAMUL_MCQ/refs/heads/main/src/assets/Skills_Verification_Training_Center_Emblem-removebg-preview.png" alt="SVTC logo" />
               </span>
               <div>
